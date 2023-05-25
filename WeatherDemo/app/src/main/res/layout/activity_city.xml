@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/edit"
         android:background="@color/white"
+        android:visibility="gone"
         />
 
     <androidx.appcompat.widget.AppCompatButton

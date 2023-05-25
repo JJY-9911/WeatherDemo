@@ -14,8 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.menu.adapter.ManagerAdapter;
-import com.example.menu.adapter.SearchCityAdapter;
+import com.example.menu.adapter.CityManagerAdapter;
 import com.example.menu.databinding.ActivityCityBinding;
 import com.example.menu.dto.CityDTO;
 import com.example.menu.item.CityManagerItem;
@@ -37,11 +36,8 @@ public class CityActivity extends AppCompatActivity {
     ActivityCityBinding binding;
     RecyclerView cityManagerRecycler;
     List<CityManagerItem> cityMangerData;
-    ManagerAdapter managerAdapter;
+    CityManagerAdapter cityManagerAdapter;
 
-    RecyclerView searchRecycler;
-    List<SearchListItem> cityListData;
-    SearchCityAdapter searchCityAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,17 +53,12 @@ public class CityActivity extends AppCompatActivity {
         });
 
         cityManagerRecycler = binding.cityRecycler;
-        searchRecycler = binding.searchRecycler;
-
-        cityListData = new ArrayList<>();
-        searchCityAdapter = new SearchCityAdapter(this,cityListData);
-        searchRecycler.setAdapter(searchCityAdapter);
-        searchRecycler.setLayoutManager(new LinearLayoutManager(this));
-
         cityMangerData = new ArrayList<>();
-        managerAdapter = new ManagerAdapter(this,cityMangerData);
-        cityManagerRecycler.setAdapter(managerAdapter);
+        cityManagerAdapter = new CityManagerAdapter(this,cityMangerData);
+        cityManagerRecycler.setAdapter(cityManagerAdapter);
         cityManagerRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
 
     public void searchCity(String location){
@@ -97,7 +88,6 @@ public class CityActivity extends AppCompatActivity {
                             String name = cityDTO.getLocation().get(i).getName();
                             String cityId = cityDTO.getLocation().get(i).getId();
                             System.out.println(i + name + cityId);
-                            runOnUiThread(()->cityListData.add(new SearchListItem(name)));
                             runOnUiThread(()-> cityMangerData.add(new CityManagerItem(name)));
                         }
 

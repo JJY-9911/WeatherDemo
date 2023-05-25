@@ -2,11 +2,9 @@ package com.example.menu.dto;
 
 import java.util.List;
 
-public class CityDTO {
 
-    public CityDTO(List<LocationDTO> location) {
-        this.location = location;
-    }
+/**用于将网络请求的json映射为实体类，只用得上城市名和城市id，ID用于请求天气*/
+public class CityDTO {
 
     private String code;
 
