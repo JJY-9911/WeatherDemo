@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="20dp"
     android:background="@color/black">
@@ -22,16 +23,7 @@
         android:textColor="#ffffff"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/search_Recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edit"
-        android:background="@color/white"
-        android:visibility="gone"
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/button"
         android:layout_width="80dp"
         android:layout_height="48dp"
@@ -40,8 +32,10 @@
         android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
         android:text="search"
-        android:textSize="8sp"
+        android:textSize="12sp"
         android:textColor="@color/white"
+        android:gravity="center"
+
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -49,5 +43,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32dp"
+        tools:listitem="@layout/city_item"
+        android:visibility="gone"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_Recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit"
+        android:background="@color/white"
+        tools:listitem="@layout/search_item"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>

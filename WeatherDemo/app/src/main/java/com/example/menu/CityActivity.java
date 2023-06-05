@@ -1,10 +1,5 @@
 package com.example.menu;
 
-
-
-import static com.example.menu.Constant.KEY;
-import static com.example.menu.Constant.URL_CITY;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +11,9 @@ import android.view.View;
 
 import com.example.menu.adapter.CityManagerAdapter;
 import com.example.menu.databinding.ActivityCityBinding;
-import com.example.menu.dto.CityDTO;
+
 import com.example.menu.item.CityManagerItem;
-import com.example.menu.item.SearchListItem;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -30,12 +25,13 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import com.example.menu.Constant;
 
 
 public class CityActivity extends AppCompatActivity {
     ActivityCityBinding binding;
     RecyclerView cityManagerRecycler;
-    List<CityManagerItem> cityMangerData;
+    List<CityManagerItem> cityMangerData = new ArrayList<>();
     CityManagerAdapter cityManagerAdapter;
 
     @Override
@@ -53,7 +49,6 @@ public class CityActivity extends AppCompatActivity {
         });
 
         cityManagerRecycler = binding.cityRecycler;
-        cityMangerData = new ArrayList<>();
         cityManagerAdapter = new CityManagerAdapter(this,cityMangerData);
         cityManagerRecycler.setAdapter(cityManagerAdapter);
         cityManagerRecycler.setLayoutManager(new LinearLayoutManager(this));

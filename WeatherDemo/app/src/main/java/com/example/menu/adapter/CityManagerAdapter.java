@@ -1,7 +1,6 @@
 package com.example.menu.adapter;
 
 import android.content.Context;
-import android.hardware.lights.LightsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
